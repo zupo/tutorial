@@ -1,15 +1,37 @@
 [tool.poetry]
-name = "pyramid-tutorial"
+name = "tutorial"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
-# packages = [{include = "pyramid_tutorial"}]
+
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pyramid = "^2.0.1"
-cookiecutter = "^2.1.1"
+
+alembic = "*"
+plaster_pastedeploy = "*"
+pyramid = "*"
+pyramid_debugtoolbar = "*"
+pyramid_jinja2 = "*"
+pyramid_retry = "*"
+pyramid_tm = "*"
+SQLAlchemy = "*"
+transaction = "*"
+waitress = "*"
+"zope.sqlalchemy" = "*"
+
+[tool.poetry.dev-dependencies]
+WebTest = "*"
+pytest = "*"
+pytest-cov = "*"
+
+
+[tool.poetry.plugins."paste.app_factory"]
+main = "tutorial:main"
+
+[tool.poetry.scripts]
+initialize_tutorial_db = "tutorial.scripts.initialize_db:main"
 
 
 [build-system]
