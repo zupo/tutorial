@@ -14,9 +14,9 @@ let
   env = poetry2nix.mkPoetryEnv {
     pyproject = ./pyproject.toml;
     poetrylock = ./poetry.lock;
-    # editablePackageSources = {
-    #   trivial = ./src;
-    # };
+    editablePackageSources = {
+      tutorial = ./.;
+    };
   };
 in
 
