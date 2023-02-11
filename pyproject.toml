@@ -11,15 +11,15 @@ python = "^3.10"
 
 alembic = "*"
 plaster_pastedeploy = "*"
-pyramid = "*"
+pyramid = "^2"
 pyramid_debugtoolbar = "*"
 pyramid_jinja2 = "*"
 pyramid_retry = "*"
 pyramid_tm = "*"
-SQLAlchemy = "*"
+SQLAlchemy = "^2"
 transaction = "*"
 waitress = "*"
-"zope.sqlalchemy" = "*"
+zope-sqlalchemy = "*"
 
 [tool.poetry.dev-dependencies]
 WebTest = "*"

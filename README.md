@@ -5,7 +5,7 @@ An example "tutorial" repo that follows https://docs.pylonsproject.org/projects/
 
 Using latest Pyramid 2 and SQLAlchemy 2.
 
-These are the commands used in the tutorial, but changed to use [Poetry]:
+These are the commands used in the tutorial, but changed to use [Poetry](https://python-poetry.org/):
 
 ```console
 $ cd ~
