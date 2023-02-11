@@ -92,6 +92,8 @@ def app_request(app, tm, dbsession):
         request = env['request']
         request.host = 'example.com'
 
+        dbsession.info['request'] = request
+
         # without this, request.dbsession will be joined to the same transaction
         # manager but it will be using a different sqlalchemy.orm.Session using
         # a separate database transaction
@@ -117,6 +119,7 @@ def dummy_request(tm, dbsession):
     request.host = 'example.com'
     request.dbsession = dbsession
     request.tm = tm
+    request.client_addr = "1.2.3.4"
 
     return request
 

@@ -16,10 +16,14 @@ pyramid_debugtoolbar = "*"
 pyramid_jinja2 = "*"
 pyramid_retry = "*"
 pyramid_tm = "*"
-SQLAlchemy = "^2"
+SQLAlchemy = "^1.4"
+SQLAlchemy-Continuum = "*"
 transaction = "*"
 waitress = "*"
 zope-sqlalchemy = "*"
+
+# remove after https://github.com/kvesteri/sqlalchemy-continuum/pull/327 is merged and released
+six = "*"
 
 [tool.poetry.dev-dependencies]
 WebTest = "*"

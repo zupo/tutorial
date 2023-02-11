@@ -15,6 +15,9 @@ def setup_models(dbsession):
     model = models.mymodel.MyModel(name='one', value=1)
     dbsession.add(model)
 
+    user = models.mymodel.User(name="foo")
+    dbsession.add(user)
+
 
 def parse_args(argv):
     parser = argparse.ArgumentParser()
