@@ -1,4 +1,4 @@
-# Pyramid's "SQLAlchemy + URL dispatch" wiki tutorial based on Poetry
+# Pyramid's "SQLAlchemy + URL dispatch" tutorial scaffold based on Poetry
 
 
 An example "tutorial" repo that follows https://docs.pylonsproject.org/projects/pyramid/en/latest/tutorials/wiki2/index.html but uses Poetry instead of pip/setuptools.
