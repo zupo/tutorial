@@ -33,7 +33,9 @@ $ initialize_tutorial_db development.ini
 $ pytest -q
 $ pserve development.ini --reload
 ```
+## Object history via SQLAlchemy-Continuum
 
+Need to keep history of your objects so you can tell who changed what and when? See the [exploration/sqlalchemy-continuum](https://github.com/zupo/tutorial/tree/exploration/sqlalchemy-continuum) branch of this repo.
 
 # References
 
