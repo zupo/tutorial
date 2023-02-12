@@ -136,14 +136,5 @@ latest.dump
 # nix-build results
 result*
 
-# frontend/ ignores
-frontend/.coverage/
-frontend/.parcel-cache/
-frontend/elm-stuff/
-frontend/node_modules
-frontend/src/Api
-frontend/src/Api.elm
-frontend/tests/VerifyExamples
-
-# backend/ ignores
-backend/selenium_screenshots/
+testing.sqlite
+tutorial.sqlite
