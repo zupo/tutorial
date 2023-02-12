@@ -10,6 +10,7 @@ readme = "README.md"
 python = "^3.10"
 
 alembic = "*"
+gunicorn = "*"
 plaster_pastedeploy = "*"
 pyramid = "^2"
 pyramid_debugtoolbar = "*"

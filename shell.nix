@@ -25,6 +25,7 @@ pkgs.mkShell {
   buildInputs = [
     env
     pkgs.poetry
+    pkgs.heroku
   ];
 
 }
