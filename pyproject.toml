@@ -7,7 +7,7 @@ readme = "README.md"
 
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 
 alembic = "*"
 plaster_pastedeploy = "*"
@@ -16,7 +16,8 @@ pyramid_debugtoolbar = "*"
 pyramid_jinja2 = "*"
 pyramid_retry = "*"
 pyramid_tm = "*"
-SQLAlchemy = "^2"
+SQLAlchemy = "^1.4"
+sqlalchemy-fsm  = "*"
 transaction = "*"
 waitress = "*"
 zope-sqlalchemy = "*"

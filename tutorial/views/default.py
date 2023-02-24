@@ -10,6 +10,14 @@ def my_view(request):
     try:
         query = request.dbsession.query(models.MyModel)
         one = query.filter(models.MyModel.name == 'one').one()
+
+        if one.state == one.states.new:
+            one.start.set()
+        elif one.state == one.states.in_progress:
+            one.finish.set()
+        elif one.state == one.states.done:
+            one.reset.set()
+
     except SQLAlchemyError:
         return Response(db_err_msg, content_type='text/plain', status=500)
     return {'one': one, 'project': 'myproj'}

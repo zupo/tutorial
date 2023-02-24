@@ -1,43 +1,23 @@
-# Pyramid's "SQLAlchemy + URL dispatch" tutorial scaffold based on Poetry
+# SQLAlchemy-fsm exploration
 
+First, read [main branch `README.md`](https://github.com/zupo/tutorial/blob/main/README.md).
 
-An example "tutorial" repo that follows https://docs.pylonsproject.org/projects/pyramid/en/latest/tutorials/wiki2/index.html but uses Poetry instead of pip/setuptools.
+This branch shows my exploration of [SQLAlchemy-fsm](https://pypi.org/project/sqlalchemy-fsm/) to a simple Finite-State-Machine as `state` field of SQLA models.
 
-Using latest Pyramid 2 and SQLAlchemy 2.
+Steps:
+* https://github.com/VRGhost/sqlalchemy-fsm#usage
+* Run `alembic -c development.ini revision --autogenerate -m "fsm"` to add a new `state` column.
+* Run `alembic -c development.ini upgrade head` to add the new column to DB.
+* Run `pserve development.ini --reload` and go to `http://localhost:6543/`.
+* On every view load `mymodel.state` is transitioned: `new` -> `in-progress` -> `done` -> back to `new`.
 
-These are the commands used in the tutorial, but changed to use [Poetry](https://python-poetry.org/):
-
-```console
-$ cd ~
-$ git clone https://github.com/zupo/tutorial.git
-$ cd tutorial
-$ poetry install
-$ poetry run alembic -c development.ini revision --autogenerate -m "init"
-$ poetry run alembic -c development.ini upgrade head
-$ poetry run initialize_tutorial_db development.ini
-$ poetry run pytest -q
-$ poetry run pserve development.ini --reload
-```
-
-## Nix support
-
-If you want to skip the manual installation of prerequisites, this repo comes with [Nix](https://nixos.org/) support as well. Assuming you have [Nix](https://nixos.org/) & [direnv](https://direnv.net/) installed (but no Python, no Poetry, etc.), the commands above look like so:
-
-```console
-$ cd ~
-$ git clone https://github.com/zupo/tutorial.git
-$ cd tutorial
-$ alembic -c development.ini revision --autogenerate -m "init"
-$ alembic -c development.ini upgrade head
-$ initialize_tutorial_db development.ini
-$ pytest -q
-$ pserve development.ini --reload
-```
-## Object history via SQLAlchemy-Continuum
-
-Need to keep history of your objects so you can tell who changed what and when? See the [exploration/sqlalchemy-continuum](https://github.com/zupo/tutorial/tree/exploration/sqlalchemy-continuum) branch of this repo.
 
 # References
 
-* https://github.com/Pylons/pyramid-cookiecutter-starter/issues/69
-* https://gist.github.com/mmerickel/33bc8edc633da132a8f92dbcb03ec1da
+* https://pypi.org/project/sqlalchemy-fsm/ (more active and better alternative but no OOTB support for SQLAlchemy)
+* https://pypi.org/project/sqlalchemy-state-machine/ (similar but more basic, no side effects, no conditions)
+
+
+# Caveats
+
+In `sqlalchemy-fsm`, a transition method such as `post.publish()` does not do what is expected: to publish the blog post. But rather it tells you if `post`'s current state is the same as the target state for `publish()` transition. No idea why and who uses this. If you want to do the actual transition, you have to call `post.publish.set()`. This API is unfortunate.

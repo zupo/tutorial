@@ -12,11 +12,27 @@ let
   };
 
   env = poetry2nix.mkPoetryEnv {
+    python = pkgs.python311;
     pyproject = ./pyproject.toml;
     poetrylock = ./poetry.lock;
     editablePackageSources = {
       tutorial = ./.;
     };
+    overrides = pkgs.poetry2nix.defaultPoetryOverrides.extend (self: super: {
+
+      sqlalchemy-fsm = super.sqlalchemy-fsm.overridePythonAttrs (
+        old: {
+          buildInputs = (old.buildInputs or [ ]) ++ [ self.setuptools ];
+        }
+      );
+
+      iniconfig = super.iniconfig.overridePythonAttrs (
+        old: {
+          buildInputs = (old.buildInputs or [ ]) ++ [ self.hatch-vcs ];
+        }
+      );
+    });
+
   };
 in
 
