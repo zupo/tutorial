@@ -39,7 +39,7 @@ Need to keep history of your objects so you can tell who changed what and when? 
 
 ## Worflows for SQLAlchemy models
 
-Need Plone/Kotty/repoze_workflow style Finite-State-Machine support for your models?? See the [exploration/sqlalchemy-continuum](https://github.com/zupo/tutorial/tree/exploration/sqlalchemy-fsm) branch of this repo.
+Need Plone/Kotty/repoze_workflow style Finite-State-Machine support for your models?? See the [exploration/sqlalchemy-fsm](https://github.com/zupo/tutorial/tree/exploration/sqlalchemy-fsm) branch of this repo.
 
 # References
 
