@@ -37,6 +37,10 @@ $ pserve development.ini --reload
 
 Need to keep history of your objects so you can tell who changed what and when? See the [exploration/sqlalchemy-continuum](https://github.com/zupo/tutorial/tree/exploration/sqlalchemy-continuum) branch of this repo.
 
+## Worflows for SQLAlchemy models
+
+Need Plone/Kotty/repoze_workflow style Finite-State-Machine support for your models?? See the [exploration/sqlalchemy-continuum](https://github.com/zupo/tutorial/tree/exploration/sqlalchemy-fsm) branch of this repo.
+
 # References
 
 * https://github.com/Pylons/pyramid-cookiecutter-starter/issues/69
